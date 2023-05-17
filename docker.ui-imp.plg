@@ -2,11 +2,11 @@
 <!DOCTYPE PLUGIN [
     <!ENTITY name "docker.ui-imp">
     <!ENTITY author "Bastians-Bits">
-    <!ENTITY version "0000.00.00">
+    <!ENTITY version "2023.05.17a">
     <!ENTITY github "Bastians-Bits/unraid.docker.ui-imp">
     <!ENTITY plugdir "/usr/local/emhttp/plugins/&name;">
     <!ENTITY pluginURL "https://raw.githubusercontent.com/&github;/main/&name;.plg">
-    <!ENTITY md5 "f8749a01badf8edfe7fb32dd103dff6f"> <!-- TODO: When and how calculated? -->
+    <!ENTITY md5 "8831e19ce509fb8b0f8ffa500ece2b77"> <!-- TODO: When and how calculated? -->
 ]>
 
 <PLUGIN name="&name;"
