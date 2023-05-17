@@ -34,7 +34,7 @@
 
     <!-- Download the new file -->
     <FILE Name="/boot/config/plugins/&name;/&name;-&version;.tar" Run="upgradepkg --install-new">
-        <URL>https://raw.github.com/&github;/master/archive/&name;-&version;.tar</URL>
+        <URL>https://raw.github.com/&github;/main/archive/&name;-&version;.tar</URL>
         <MD5>&md5;</MD5>
     </FILE>
 
