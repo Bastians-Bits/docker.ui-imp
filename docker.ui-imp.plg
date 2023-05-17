@@ -28,13 +28,13 @@
     <!-- Remove the old version -->
     <FILE Run="/bin/bash">
         <INLINE>
-            rm -f $(ls /boot/config/plugins/&name;/&name;*.tar 2&gt;/dev/null | grep -v '&version;')
+            rm -f $(ls /boot/config/plugins/&name;/&name;*.tar.gz 2&gt;/dev/null | grep -v '&version;')
         </INLINE>
     </FILE>
 
     <!-- Download the new file -->
-    <FILE Name="/boot/config/plugins/&name;/&name;-&version;.tar" Run="upgradepkg --install-new">
-        <URL>https://raw.github.com/&github;/main/archive/&name;-&version;.tar</URL>
+    <FILE Name="/boot/config/plugins/&name;/&name;-&version;.tar.gz" Run="upgradepkg --install-new">
+        <URL>https://raw.github.com/&github;/main/archive/&name;-&version;.tar.gz</URL>
         <MD5>&md5;</MD5>
     </FILE>
 
