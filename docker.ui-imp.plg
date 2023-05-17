@@ -1,0 +1,66 @@
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE PLUGIN [
+    <!ENTITY name "docker.ui-imp">
+    <!ENTITY author "Bastians-Bits">
+    <!ENTITY version "0000.00.00">
+    <!ENTITY github "Bastians-Bits/unraid.docker.ui-imp">
+    <!ENTITY plugdir "/usr/local/emhttp/plugins/&name;">
+    <!ENTITY pluginURL "https://raw.githubusercontent.com/&github;/main/&name;.plg">
+    <!ENTITY md5 "05fac202870a74bfc2593e6ec95398e5"> <!-- TODO: When and how calculated? -->
+]>
+
+<PLUGIN name="&name;"
+    author="&author;"
+    version="&version;"
+    pluginURL="&pluginURL;"
+    icon="docker"
+    support="https://forums.unraid.net/topic/89702-plugin-docker-folder/"
+    min="6.11.5">
+    <!-- TODO: support needed? -->
+
+    <CHANGES>
+    ###0000.00.00
+    - Initial Release
+    </CHANGES>
+
+    <!-- Installation -->
+
+    <!-- Remove the old version -->
+    <FILE Run="/bin/bash">
+        <INLINE>
+            rm -f $(ls /boot/config/plugins/&name;/&name;*.tar 2&gt;/dev/null | grep -v '&version;')
+        </INLINE>
+    </FILE>
+
+    <!-- The 'source' file. -->
+    <FILE Name="/boot/config/plugins/&name;/&name;-&version;-x86_64-1.txz" Run="upgradepkg --install-new">
+        <URL>https://raw.github.com/&github;/master/archive/&name;-&version;.tar</URL>
+        <MD5>&md5;</MD5>
+    </FILE>
+
+    <!-- The 'post-install' script -->
+    <FILE Run="/bin/bash">
+        <INLINE>
+            php &plugdir;/scripts/create_folders_file.php
+            php &plugdir;/scripts/migration/common_migration.php
+
+            echo ""
+            echo "----------------------------------------------------"
+            echo " &name; has been installed."
+            echo " Version: &version;"
+            echo "----------------------------------------------------"
+            echo ""
+        </INLINE>
+    </FILE>
+
+    <!-- De-installation -->
+
+    <!-- The 'remove' script -->
+    <FILE Run="/bin/bash" Method="remove">
+        <INLINE>
+            removepkg &name;-&version;
+            rm -rf &plugdir;
+            rm -rf /boot/config/plugins/&name;
+        </INLINE>
+    </FILE>
+</PLUGIN>
