@@ -14,6 +14,7 @@
     version="&version;"
     pluginURL="&pluginURL;"
     icon="docker"
+    support="https://github.com/Bastians-Bits/unraid.docker.ui-imp"
     min="6.11.5">
     <!-- TODO: support needed? -->
 
