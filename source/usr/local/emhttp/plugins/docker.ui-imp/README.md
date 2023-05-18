@@ -1,2 +1,2 @@
 ####Docker UI Improvements####
-Improvements to the Docker UI and hence unsability
+Improvements to the Docker UI and hence usability
