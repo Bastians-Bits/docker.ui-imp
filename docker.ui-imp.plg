@@ -2,7 +2,7 @@
 <!DOCTYPE PLUGIN [
     <!ENTITY name "docker.ui-imp">
     <!ENTITY author "Bastians-Bits">
-    <!ENTITY version "2023.05.18a">
+    <!ENTITY version "2023.05.18b">
     <!ENTITY github "Bastians-Bits/unraid.docker.ui-imp">
     <!ENTITY plugdir "/usr/local/emhttp/plugins/&name;">
     <!ENTITY pluginURL "https://raw.githubusercontent.com/&github;/main/&name;.plg">
@@ -16,7 +16,6 @@
     icon="docker"
     support="https://github.com/Bastians-Bits/unraid.docker.ui-imp"
     min="6.11.5">
-    <!-- TODO: support needed? -->
 
     <CHANGES>
     ###0000.00.00
