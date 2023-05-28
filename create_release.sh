@@ -13,19 +13,23 @@ function calc_version() {
         exit 0
     fi
 
-    # Get latest version from today
-    local previous=$(ls $archive_dir | grep -E -i -o $date"\w{1}" | grep -E -i -o "[a-z]{1}" | sort)
+    # Get all versions (only the characters after the current date)
+    local previous=$(ls $archive_dir | grep -E -i -o $date"\w+" | grep -E -i -o "[a-z]+" | sort)
+    # Get the latest version
     local latest=$(echo "$previous" | tail -n 1)
+    # Get the latest character (if already looped)
+    local latest_char=$(echo ${latest:(-1)})
     
-    # Check if end of alphabet
-    if [ "$latest" == "z" ]; then
-        exit 1
+    if [ "$latest_char" == "z" ]; then
+        # Loop ...
+        echo ${date}${latest}a
+        exit 0
+    else
+        # ... or increase
+        local next=$(echo "$latest_char" | tr "0-9a-z" "1-9a-z_")
+        echo ${date}$(echo $latest | sed "s/.$/${next}/" )
+        exit 0
     fi
-
-    # Increase to the next letter
-    local next=$(echo "$latest" | tr "0-9a-z" "1-9a-z_")
-    echo ${date}${next}
-    exit 0
 }
 
 TARGET=./archive/
