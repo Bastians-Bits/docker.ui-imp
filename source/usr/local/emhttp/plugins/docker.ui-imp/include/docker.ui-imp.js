@@ -1,2 +1,6 @@
-console.log("Docker.UI-Imp starting to load");
-console.log("Docker.UI-Imp finished to load");
+$('<input/>', {
+    type: 'button',
+    onclick: 'addFolder("docker")',
+    value: 'Test',
+    style: 'display:none'
+}).insertBefore('div.content > input:first-of-type');
