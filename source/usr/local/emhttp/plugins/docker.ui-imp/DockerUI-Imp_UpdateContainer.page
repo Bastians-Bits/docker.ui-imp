@@ -1,4 +1,4 @@
 Menu="UpdateContainer"
 Icon="server"
 ---
-<script src="/plugins/docker.ui-imp/include/docker.ui-imp.js"></script>
+<script src="<?autov('/plugins/docker.ui-imp/include/docker.ui-imp.js')?>"></script>
