@@ -2,11 +2,11 @@
 <!DOCTYPE PLUGIN [
     <!ENTITY name "docker.ui-runcmd">
     <!ENTITY author "Bastians-Bits">
-    <!ENTITY version "2023.06.03e">
+    <!ENTITY version "2023.06.03f">
     <!ENTITY github "Bastians-Bits/unraid.docker">
     <!ENTITY plugdir "/usr/local/emhttp/plugins/&name;">
     <!ENTITY pluginURL "https://raw.githubusercontent.com/&github;/main/&name;/&name;.plg">
-    <!ENTITY md5 "895c1fe2358c87d977620c2b735eacba">
+    <!ENTITY md5 "5e141c5915b153638e34aee7ff0bc854">
 ]>
 
 <PLUGIN name="&name;"
