@@ -39,7 +39,7 @@
 
     <!-- Download the new file -->
     <FILE Name="/boot/config/plugins/&name;/&name;-&version;.txz" Run="upgradepkg --install-new">
-        <URL>https://raw.github.com/&github;/main/archive/&name;-&version;.txz</URL>
+        <URL>https://raw.github.com/&github;/main/archive/&name;/&name;-&version;.txz</URL>
         <MD5>&md5;</MD5>
     </FILE>
 
