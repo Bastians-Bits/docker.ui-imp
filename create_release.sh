@@ -2,6 +2,8 @@
 # requieres md5
 # requieres basename
 
+PLUGIN=$1
+
 function calc_version() {
     local archive_dir=$1
     local date=$(date +"%Y.%m.%d")
@@ -32,9 +34,13 @@ function calc_version() {
     fi
 }
 
-TARGET=./archive/
-SOURCE=./source/
-NAME=$(basename $(ls *.plg) .plg)
+TARGET=./archive/${PLUGIN}/
+SOURCE=./${PLUGIN}/source/
+NAME=$(basename $(ls ${PLUGIN}/*.plg) .plg)
+
+# Create the archive directory if not yet exists
+if [ ! -d ${TARGET} ]; then mkdir ${TARGET}; fi
+
 VERSION=$(calc_version $TARGET)
 
 if [ -z $VERSION ]; then
@@ -46,15 +52,15 @@ NEXT=${NAME}-${VERSION}.txz
 
 # Create the txt archive
 cd ${SOURCE}
-tar -cJf ../${TARGET}${NEXT} .
+tar -cJf ../../${TARGET}${NEXT} .
 cd -
 
 # Get the checksum of the archive
 CHECKSUM=$(md5 -q ${TARGET}${NEXT})
 
 # Edit the plg file to include the new version and checksum
-OLD_VERSION=$(grep "<!ENTITY version" *.plg)
-OLD_CHECKSUM=$(grep  "<!ENTITY md5" *.plg)
+OLD_VERSION=$(grep "<!ENTITY version" ${PLUGIN}/*.plg)
+OLD_CHECKSUM=$(grep  "<!ENTITY md5" ${PLUGIN}/*.plg)
 
-sed -i '' "s/${OLD_VERSION}/    <!ENTITY version \"${VERSION}\">/g" *.plg
-sed -i '' "s/${OLD_CHECKSUM}/    <!ENTITY md5 \"${CHECKSUM}\">/g" *.plg
+sed -i '' "s/${OLD_VERSION}/    <!ENTITY version \"${VERSION}\">/g" ${PLUGIN}/*.plg
+sed -i '' "s/${OLD_CHECKSUM}/    <!ENTITY md5 \"${CHECKSUM}\">/g" ${PLUGIN}/*.plg

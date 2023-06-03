@@ -1,0 +1,3 @@
+Menu="Container"
+---
+<script src="<?autov('/plugins/docker.ui-imp/include/docker.ui-imp.js')?>"></script>

@@ -1,12 +1,12 @@
 <?xml version="1.0" standalone="yes"?>
 <!DOCTYPE PLUGIN [
-    <!ENTITY name "docker.ui-imp">
+    <!ENTITY name "docker.ui-runcmd">
     <!ENTITY author "Bastians-Bits">
-    <!ENTITY version "2023.05.29b">
-    <!ENTITY github "Bastians-Bits/unraid.docker.ui-imp">
+    <!ENTITY version "2023.06.03a">
+    <!ENTITY github "Bastians-Bits/unraid.docker">
     <!ENTITY plugdir "/usr/local/emhttp/plugins/&name;">
     <!ENTITY pluginURL "https://raw.githubusercontent.com/&github;/main/&name;.plg">
-    <!ENTITY md5 "b0f6570bc23fae91ef47c0eee3765837">
+    <!ENTITY md5 "219b2d155e453595aaa70f9154017abc">
 ]>
 
 <PLUGIN name="&name;"
@@ -14,7 +14,7 @@
     version="&version;"
     pluginURL="&pluginURL;"
     icon="docker"
-    support="https://github.com/Bastians-Bits/unraid.docker.ui-imp"
+    support="https://github.com/Bastians-Bits/unraid.docker"
     min="6.11.5">
 
     <CHANGES>

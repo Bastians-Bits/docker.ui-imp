@@ -1,0 +1,68 @@
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE PLUGIN [
+    <!ENTITY name "docker.ui-imp">
+    <!ENTITY author "Bastians-Bits">
+    <!ENTITY version "2023.06.03c">
+    <!ENTITY github "Bastians-Bits/unraid.docker.ui-imp">
+    <!ENTITY plugdir "/usr/local/emhttp/plugins/&name;">
+    <!ENTITY pluginURL "https://raw.githubusercontent.com/&github;/main/&name;.plg">
+    <!ENTITY md5 "b0f6570bc23fae91ef47c0eee3765837">
+]>
+
+<PLUGIN name="&name;"
+    author="&author;"
+    version="&version;"
+    pluginURL="&pluginURL;"
+    icon="docker"
+    support="https://github.com/Bastians-Bits/unraid.docker.ui-imp"
+    min="6.11.5">
+
+    <CHANGES>
+###0000.00.02
+- Test 1 Block
+
+###0000.00.01
+- Test 2 Blocks
+
+###0000.00.00
+- Initial Release
+    </CHANGES>
+
+    <!-- Installation -->
+
+    <!-- Remove the old version -->
+    <FILE Run="/bin/bash">
+        <INLINE>
+            rm -f $(ls /boot/config/plugins/&name;/&name;*.txz 2&gt;/dev/null | grep -v '&version;')
+        </INLINE>
+    </FILE>
+
+    <!-- Download the new file -->
+    <FILE Name="/boot/config/plugins/&name;/&name;-&version;.txz" Run="upgradepkg --install-new">
+        <URL>https://raw.github.com/&github;/main/archive/&name;-&version;.txz</URL>
+        <MD5>&md5;</MD5>
+    </FILE>
+
+    <!-- Post installation -->
+    <FILE Run="/bin/bash">
+        <INLINE>
+            echo ""
+            echo "----------------------------------------------------"
+            echo " &name; has been installed."
+            echo " Version: &version;"
+            echo "----------------------------------------------------"
+            echo ""
+        </INLINE>
+    </FILE>
+
+    <!-- De-installation -->
+
+    <!-- Remove the plugin and all files -->
+    <FILE Run="/bin/bash" Method="remove">
+        <INLINE>
+            removepkg &name;-&version;
+            rm -rf &plugdir;
+            rm -rf /boot/config/plugins/&name;
+        </INLINE>
+    </FILE>
+</PLUGIN>
