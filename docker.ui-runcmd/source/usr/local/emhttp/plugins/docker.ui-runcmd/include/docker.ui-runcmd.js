@@ -1,6 +1,6 @@
 $('<input/>', {
     type: 'button',
-    onclick: 'void',
-    value: 'Test',
+    onclick: 'openShowRunCommandDialog()',
+    value: 'Show Run Command',
     style: 'display:none'
 }).insertAfter('div.content > input:last');
