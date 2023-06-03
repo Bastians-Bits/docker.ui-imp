@@ -1,6 +1,6 @@
 $('<input/>', {
     type: 'button',
-    onclick: 'addFolder("docker")',
+    onclick: 'void',
     value: 'Test',
     style: 'display:none'
 }).insertBefore('div.content > input:first-of-type');
