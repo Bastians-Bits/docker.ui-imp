@@ -5,7 +5,7 @@
     <!ENTITY version "2023.06.03c">
     <!ENTITY github "Bastians-Bits/unraid.docker">
     <!ENTITY plugdir "/usr/local/emhttp/plugins/&name;">
-    <!ENTITY pluginURL "https://raw.githubusercontent.com/&github;/main/&name;.plg">
+    <!ENTITY pluginURL "https://raw.githubusercontent.com/&github;/main/&name;/&name;.plg">
     <!ENTITY md5 "2cf930c3c592bc2b04f3355dce8904bb">
 ]>
 
