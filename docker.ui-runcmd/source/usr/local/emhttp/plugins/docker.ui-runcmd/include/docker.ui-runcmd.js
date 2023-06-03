@@ -3,4 +3,4 @@ $('<input/>', {
     onclick: 'void',
     value: 'Test',
     style: 'display:none'
-}).insertBefore('div.content > input:last-of-type');
+}).insertAfter('div.content > input:last-of-type');
