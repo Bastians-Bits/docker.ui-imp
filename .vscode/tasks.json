@@ -1,0 +1,37 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "create_archive_folder",
+            "type": "shell",
+            "command": "if [ ! -d ./tmp/ ]; then mkdir ./tmp/; fi",
+        },
+        {
+            "label": "create_archive",
+            "type": "shell",
+            "command": "cd ./docker.ui-runcmd/source; tar -cJf ../../tmp/docker.ui-runcmd-dev.txz .; cd -"
+        },
+        {
+            "label": "copy_to_server",
+            "type": "shell",
+            "command": "scp ./tmp/docker.ui-runcmd-dev.txz alpha:~"
+        },
+        {
+            "label": "install_on_server",
+            "type": "shell",
+            "command": "ssh alpha upgradepkg --verbose --install-new --reinstall docker.ui-runcmd-dev.txz"
+        },
+        {
+            "label": "deploy",
+            "dependsOrder": "sequence",
+            "dependsOn": [ 
+                "create_archive_folder", 
+                "create_archive", 
+                "copy_to_server", 
+                "install_on_server" 
+            ]
+        }
+    ]
+}
